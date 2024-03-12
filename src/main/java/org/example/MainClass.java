@@ -46,7 +46,7 @@ public class MainClass {
                 content.append(inputLine);
             }
             // System.out.println("This is the server response:");
-             System.out.println(content);
+           //  System.out.println(content);
 
 
 
