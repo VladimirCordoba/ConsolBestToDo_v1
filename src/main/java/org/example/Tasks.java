@@ -1,9 +1,6 @@
 package org.example;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.util.List;
 
 public class Tasks {
     public Tasks(String id, String status, String task, String priority) {
