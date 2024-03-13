@@ -15,6 +15,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+//import jdk.jfr.snippets.Snippets;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -31,8 +32,10 @@ public class MainClass {
         try {
 
          //  URL url = new URL("https://api.domainsdb.info/v1/domains/search?limit=50&domain=sportman");
-            URL url = new URL("https://api.domainsdb.info/v1/domains/search?limit=2&&country=LV");
+          //  URL url = new URL("https://api.domainsdb.info/v1/domains/search?limit=2&&country=LV");
           //  URL url = new URL("https://api.domainsdb.info/v1/domains/search?limit=5");
+            URL url = new URL("http://localhost:8080/consol/task/list");
+
 
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
@@ -45,80 +48,28 @@ public class MainClass {
             while ((inputLine = in.readLine()) != null) {
                 content.append(inputLine);
             }
-            // System.out.println("This is the server response:");
-           //  System.out.println(content);
 
+            // Create an ObjectMapper instance
+            ObjectMapper objectMapper = new ObjectMapper();
+            // Deserialize the JSON string into an array of User objects
+            Tasks[] people = objectMapper.readValue(content.toString(), Tasks[].class);
 
-
-            ObjectMapper mapper = new ObjectMapper();
-
-            JSONParser jsonParser = new JSONParser();
-            JSONObject jsonObject = (JSONObject) jsonParser.parse(content.toString());
-
-
-            // получение массива
-            JSONArray lang= (JSONArray) jsonObject.get("domains");
-
-            // достаем элементы массива каждый элкмент это уже простой JSON
-            for(int i=0; i<lang.size(); i++){
-              //  System.out.println("The " + i + " element of the array: "+lang.get(i));
-                // помещаем элементы в мапу и сразу можем из маты достать конкретное поле в данном случае это domen
-                Map<String, Object> map = mapper.readValue(lang.get(i).toString(), Map.class);
-                System.out.println("Domen Nr"+ i +" "+ map.get("domain"));
+            // Print the details of each user
+            for (Tasks tasks : people) {
+                System.out.println("id: " + tasks.getId() + ", " + "status: " + tasks.getStatus() +", "+
+                        "Tasks:  " + tasks.getTask() +", " + "Priority: " + tasks.getPriority());
             }
 
 
+            /*String json = "{" + "\"Example\": [" + "{" + "\"foo\": \"a1\","
+                    + "\"bar\": \"b1\"," + "\"fubar\": \"c1\"" + "}," + "{"
+                    + "\"foo\": \"a2\"," + "\"bar\": \"b2\"," + "\"fubar\": \"c2\""
+                    + "}," + "{" + "\"foo\": \"a3\"," + "\"bar\": \"b3\","
+                    + "\"fubar\": \"c3\"" + "}" + "]" + "}\"";
+            */
 
-
-
-         // System.out.println(content.substring(12, 1+content.indexOf("]")));
-
-            // String json = content.toString();
-
-          /* ObjectMapper mapper = new ObjectMapper();
-            ObjectMapper mapper1 = new ObjectMapper();
-            String json = content.substring(13, content.indexOf("]"));
-            System.out.println("Printing json=" + json);
-*/
-
-          //  Map<String, Object> map = mapper.readValue(content.substring(13, content.indexOf("]")), Map.class);
-          //  Map<String, Object> map = mapper.readValue(json, Map.class);
-
-          //  System.out.println("Indeks=" + content.indexOf("]"));
-          //  System.out.println("Dlinna ctroki=" + content.length());
-
-          //  System.out.println("Printing map");
-           // System.out.println(map);
-          //  System.out.println(map.get("domain"));
-
-
-
-            //   System.out.println(map.get("domains").getClass());
-/*
-            String s = map.get("domains").toString();
-            s = s.substring(2, s.indexOf("}")); //Убираем лишнее
-            System.out.println(s);
-
-            Map<String, String> map1 = new HashMap<>();
-            Arrays.asList(s)
-                    .stream()
-                    .map(elem -> elem.split("="))
-                    .forEach(elem -> map1.put(elem[0], elem[1]));*/
-
-            // Map<String, Object> map1 = mapper1.readValue(s, Map.class);
-            //  System.out.println (map1.get("domain"));
-
-            /*String s = "[77012260000,77012260001,77012260002,77012260003,77012260004,77012260005,77012260006,77012260007].";
-            s = s.substring(1, s.indexOf("]")); //Убираем лишнее
-            String[] array = s.split(","); //Разбиваем на массив по запятой
-            System.out. println(Arrays.toString(array));*/
-
-
-          //  in.close();
-          //  con.disconnect();
-
-           /* JSONObject json = new JSONObject(content.toString());
-            System.out.println(json);*/
+            in.close();
+            con.disconnect();
 
         } catch (Exception ex) {
             ex.printStackTrace();
