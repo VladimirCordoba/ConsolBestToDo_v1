@@ -24,8 +24,7 @@ public class MainClass {
             }while (dchoice != 1);
             System.out.print("\033[H\033[J"); // Чтобы очистить экран
             System.out.println("Get a list of tasks: " );
-            Connect.connectToUrl();
-
+            Connect.jsonToPojo(Connect.connectToUrl());
 
             bufferedReader.close();
             inputStream.close();
