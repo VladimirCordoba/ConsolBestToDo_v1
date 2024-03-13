@@ -11,7 +11,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public  class Connect  {
-    public static StringBuffer  connectToUrl() throws IOException {
+    public static Tasks[]  connectToUrl() throws IOException {
 
 
             URL url = new URL("http://localhost:8080/consol/task/list");
@@ -34,19 +34,19 @@ public  class Connect  {
           //  con.disconnect();
 
 
-        return content;
-    }
-public static void  jsonToPojo(StringBuffer content) throws JsonProcessingException {
+      //  return content;
+   // }
+//public static Tasks[]  jsonToPojo(StringBuffer content) throws JsonProcessingException {
     // Create an ObjectMapper instance
     ObjectMapper objectMapper = new ObjectMapper();
     // Deserialize the JSON string into an array of User objects
     Tasks[] tasksArr = objectMapper.readValue(content.toString(), Tasks[].class);
-    // Print the details of each user
+   /* // Print the details of each user
     for (Tasks tasks : tasksArr) {
         System.out.println("id: " + tasks.getId() + ", " + "status: " + tasks.getStatus() +", "+
                 "Tasks:  " + tasks.getTask() +", " + "Priority: " + tasks.getPriority());
-    }
-
+    }*/
+return tasksArr;
 }
 
 }
