@@ -22,6 +22,8 @@ public class MainClass {
                  dchoice = Integer.parseInt(choice); //преобразовываем строку в число.
               //  System.out.println("Не верный ввод данных, повторите еще раз: ");
             }while (dchoice != 1);
+
+            cls();
             System.out.print("\033[H\033[J"); // Чтобы очистить экран
             System.out.println("Get a list of tasks: " );
 
@@ -42,5 +44,18 @@ public class MainClass {
 
 
     }
+// код для очистки экрана
+    public static void cls() {
+        try {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } catch (Exception E) {
+            System.out.println(E);
+        }
+    }
+
+
+
+
+
 
 }
