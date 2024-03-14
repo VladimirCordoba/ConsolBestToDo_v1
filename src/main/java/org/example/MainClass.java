@@ -26,6 +26,8 @@ public class MainClass {
             System.out.println("Get a list of tasks: " );
           //  Connect.jsonToPojo(Connect.connectToUrl());
             SortTasks.allTasksList(Connect.connectToUrl());
+            System.out.println("Get a list of OPEN tasks: " );
+            SortTasks.openTasksList(Connect.connectToUrl());
 
             bufferedReader.close();
             inputStream.close();
