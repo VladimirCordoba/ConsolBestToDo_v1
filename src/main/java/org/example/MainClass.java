@@ -24,10 +24,14 @@ public class MainClass {
             }while (dchoice != 1);
             System.out.print("\033[H\033[J"); // Чтобы очистить экран
             System.out.println("Get a list of tasks: " );
-          //  Connect.jsonToPojo(Connect.connectToUrl());
+
+
             SortTasks.allTasksList(Connect.connectToUrl());
             System.out.println("Get a list of OPEN tasks: " );
             SortTasks.openTasksList(Connect.connectToUrl());
+
+
+
 
             bufferedReader.close();
             inputStream.close();
