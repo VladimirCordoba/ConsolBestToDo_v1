@@ -6,7 +6,7 @@ import java.io.*;
 
 public class MainClass {
 
-    public static void main(String[] args)throws IOException {
+    public static void main(String[] args) throws IOException {
 
       //  System.out.println("1 - show open tasks" );
         try {
@@ -16,23 +16,28 @@ public class MainClass {
 
             int dchoice = 0;
             System.out.println("1 - show open tasks" );
+            System.out.println("2 - add NEW tasks" );
+
             do{
 
                 String choice = bufferedReader.readLine(); //читаем строку с клавиатуры
                  dchoice = Integer.parseInt(choice); //преобразовываем строку в число.
               //  System.out.println("Не верный ввод данных, повторите еще раз: ");
-            }while (dchoice != 1);
+            }while (dchoice != 1 && dchoice != 2);
 
-            cls();
-            System.out.print("\033[H\033[J"); // Чтобы очистить экран
-            System.out.println("Get a list of tasks: " );
+            if (dchoice == 1 ){
 
+                cls(); // Чтобы очистить экран
+                System.out.print("\033[H\033[J"); // Чтобы очистить экран
+                System.out.println("Get a list of tasks: " );
+                SortTasks.allTasksList(Connect.connectToUrl());
+                System.out.println("Get a list of OPEN tasks: " );
+                SortTasks.openTasksList(Connect.connectToUrl());
 
-            SortTasks.allTasksList(Connect.connectToUrl());
-            System.out.println("Get a list of OPEN tasks: " );
-            SortTasks.openTasksList(Connect.connectToUrl());
-
-
+            }else
+            {
+                AddTask.addTasksmethod();
+            }
 
 
             bufferedReader.close();

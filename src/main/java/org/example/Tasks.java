@@ -3,6 +3,16 @@ package org.example;
 
 
 public class Tasks {
+    public Tasks(String status, String task, String priority) {
+        this.status = status;
+        this.task = task;
+        this.priority = priority;
+    }
+
+    public Tasks(String task) {
+        this.task = task;
+    }
+
     public Tasks(String id, String status, String task, String priority) {
         this.id = id;
         this.status = status;
@@ -47,9 +57,8 @@ public class Tasks {
 
     private String id;
 
-    private  String status;
-
     private String task;
+    private  String status;
     private String priority;
 
 

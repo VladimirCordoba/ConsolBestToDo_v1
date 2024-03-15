@@ -10,8 +10,11 @@ public class SortTasks {
 
     public static void allTasksList(Tasks[] tasksArr) {
         for (Tasks tasks : tasksArr) {
-            System.out.println("id: " + tasks.getId() + ", " + "status: " + tasks.getStatus() + ", " +
-                    "Tasks:  " + tasks.getTask() + ", " + "Priority: " + tasks.getPriority());
+            System.out.println(
+                    "id: " + tasks.getId() + ", "+
+                    "Tasks:  " + tasks.getTask().substring(0,30) + "..., " +
+                    "status: "  + tasks.getStatus() + ", " +
+                    "Priority: " + tasks.getPriority());
         }
     }
 
@@ -31,8 +34,11 @@ public class SortTasks {
 
 
             for (Tasks tasks : sortedTasks) {
-                System.out.println("id: " + tasks.getId() + ", " + "status: " + tasks.getStatus() + ", " +
-                        "Tasks:  " + tasks.getTask() + ", " + "Priority: " + tasks.getPriority());
+                System.out.println(
+                        "id: " + tasks.getId() + ", "+
+                                "Tasks:  " + tasks.getTask().substring(0,30) + "..., " +
+                                "status: "  + tasks.getStatus() + ", " +
+                                "Priority: " + tasks.getPriority());
             }
 
 
