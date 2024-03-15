@@ -11,6 +11,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public  class Connect  {
+
+    // here we connect to our web application to get a list of tasks from the database
     public static Tasks[]  connectToUrl() throws IOException {
 
 
@@ -30,8 +32,11 @@ public  class Connect  {
             }
 
 
-          //  in.close();
-          //  con.disconnect();
+            in.close();
+            con.disconnect();
+
+
+
 
 
       //  return content;
@@ -48,5 +53,12 @@ public  class Connect  {
     }*/
 return tasksArr;
 }
+
+// here we connect to our web application to put a NEW task to the database
+/*public static void   addNewtaskToUrl() throws IOException {
+
+//return null;
+}*/
+
 
 }

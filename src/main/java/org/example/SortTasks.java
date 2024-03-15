@@ -1,5 +1,6 @@
 package org.example;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.Objects;
 
 public class SortTasks {
 
-    public static void allTasksList(Tasks[] tasksArr) {
+    public static void allTasksList(Tasks[] tasksArr) throws IOException {
         for (Tasks tasks : tasksArr) {
             System.out.println(
                     "id: " + tasks.getId() + ", "+
@@ -16,9 +17,10 @@ public class SortTasks {
                     "status: "  + tasks.getStatus() + ", " +
                     "Priority: " + tasks.getPriority());
         }
+        Start.connectToConsol();
     }
 
-    public static void openTasksList(Tasks[] tasksArr) {
+    public static void openTasksList(Tasks[] tasksArr) throws IOException {
         List<Tasks> listTMP = new ArrayList<Tasks>();
         //  List<Tasks> tasksList = new ArrayList<>(Arrays.asList(tasksArr));
         for (int i = 0; i < tasksArr.length; i++) {
@@ -41,8 +43,8 @@ public class SortTasks {
                                 "Priority: " + tasks.getPriority());
             }
 
+        Start.connectToConsol();
 
 
-tasksArr = null;
     }
 }
