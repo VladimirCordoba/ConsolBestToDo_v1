@@ -15,6 +15,8 @@ public class Start {
             System.out.println("2 - add NEW tasks");
             System.out.println("3 - CLOSE TASK ");
             System.out.println("4 - show ALL tasks ");
+            System.out.println("5 - Priority ");
+
             System.out.println("any key - END the program");
 
 
@@ -33,8 +35,7 @@ public class Start {
 
                     cls(); // Чтобы очистить экран
                     System.out.print("\033[H\033[J"); // Чтобы очистить экран
-                  //   System.out.println("Get a list of tasks: ");
-                  //   SortTasks.allTasksList(Connect.connectToUrl());
+
                     System.out.println("Get a list of OPEN tasks: ");
                     SortTasks.openTasksList(Connect.connectToUrl());
 
@@ -58,9 +59,12 @@ public class Start {
                     System.out.print("\033[H\033[J"); // Чтобы очистить экран
                      System.out.println("Get a list of tasks: ");
                        SortTasks.allTasksList(Connect.connectToUrl());
-                       System.out.println("*********************************************************");
-                    System.out.println("Get a list of OPEN tasks: ");
-                    SortTasks.openTasksList(Connect.connectToUrl());
+
+                }else if (Objects.equals(choice, "5"))   {
+
+                    cls(); // Чтобы очистить экран
+                    System.out.print("\033[H\033[J"); // Чтобы очистить экран
+                    UpdatePriotity.updatePriorityMethod();
 
 
                 }else {
