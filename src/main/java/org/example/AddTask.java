@@ -21,7 +21,7 @@ public class AddTask {
 
     // MainClass.cls(); // Чтобы очистить экран
     // System.out.print("\033[H\033[J"); // Чтобы очистить экран
-     System.out.println("Введите новый таск");
+     System.out.println("Enter the text of the new task");
 
 
             InputStream inputStream = System.in;
