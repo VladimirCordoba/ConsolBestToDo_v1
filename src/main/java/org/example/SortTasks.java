@@ -13,10 +13,10 @@ public class SortTasks {
         for (Tasks tasks : tasksArr) {
             System.out.println(
                     "id: " + tasks.getId() + ", "+
-                    "Tasks:  " + tasks.getTask().substring(0,30) + "..., " +
+                   " \033[5;31;40m "+ "Tasks:  " + tasks.getTask().substring(0,20) + "..., "+ "\033[m"+
                     "status: "  + tasks.getStatus() + ", " +
                     "Priority: " + tasks.getPriority());
-        }
+        } // "\033[m"+
         Start.connectToConsol();
     }
 
@@ -37,8 +37,8 @@ public class SortTasks {
 
             for (Tasks tasks : sortedTasks) {
                 System.out.println(
-                        "id: " + tasks.getId() + ", "+
-                                "Tasks:  " + tasks.getTask().substring(0,30) + "..., " +
+                                "id: " + tasks.getId() + ", "+
+                                " \033[5;31;40m "+ "Tasks:  " + tasks.getTask().substring(0,20) + "..., "+ "\033[m"+
                                 "status: "  + tasks.getStatus() + ", " +
                                 "Priority: " + tasks.getPriority());
             }

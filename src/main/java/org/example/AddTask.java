@@ -73,7 +73,11 @@ Tasks taskNew = new Tasks("OPEN", newTask, "LOW");
          while ((line = reader.readLine()) != null) {
              response.append(line);
          }
+
          reader.close();
+
+       //  bufferedReader.close();
+        // inputStream.close();
 
 
          // Выводим ответ от сервера

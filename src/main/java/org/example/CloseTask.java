@@ -20,7 +20,7 @@ public class CloseTask {
         String newTaskStatus = bufferedReader.readLine(); //читаем строку с клавиатуры
        // dnewTaskStatus = Integer.parseInt(newTaskStatus); //преобразовываем строку в число.
 
-        if (!newTaskStatus.equals("CLOSE")){
+        if (newTaskStatus.equals("CLOSE")){
 
 
          bufferedReader.close();
@@ -73,6 +73,10 @@ Tasks taskNew = new Tasks("OPEN", newTask, "LOW");
                 response.append(line);
             }
             reader.close();
+
+          //  bufferedReader.close();
+          //  inputStream.close();
+
 
 
             // Выводим ответ от сервера
