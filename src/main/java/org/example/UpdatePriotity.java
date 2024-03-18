@@ -11,7 +11,7 @@ public class UpdatePriotity {
         // MainClass.cls(); // Чтобы очистить экран
         // System.out.print("\033[H\033[J"); // Чтобы очистить экран
         System.out.println("enter task id");
-        System.out.println("enter task priority");
+
 
         int dnewTaskStatus = 0;
         InputStream inputStream = System.in;
@@ -21,6 +21,7 @@ public class UpdatePriotity {
 
         String tmpId = bufferedReader.readLine(); //читаем строку с клавиатуры
         System.out.println("task id =" + tmpId);
+        System.out.println("enter task priority");
         String tmpPriority = bufferedReader.readLine(); //читаем строку с клавиатуры
         System.out.println("task priority=" + tmpPriority);
 
@@ -41,11 +42,14 @@ public class UpdatePriotity {
             connection.setDoOutput(true);
 
             // Создаем тело запроса
-            String id = "id1=" + tmpId; //*************<<<<<<<<<<<<<<<************************
-            String priority = "priority1=" + tmpPriority;
+          //  String id = "id1=" + tmpId; //*************<<<<<<<<<<<<<<<************************
+           // String priority = "priority1=" + tmpPriority;
            // String body1 = "id1=4502&priority1=2";
-            String body = "id1="+tmpId+"&"+"priotity1="+tmpPriority;
+            String body = "id1="+tmpId+"&"+"priority1="+tmpPriority;  ///<-----------------------
+           // String body = "{\"id1\":"+tmpId+","+" + "\"priority1\"\+"+",":"+ tmpPriority;
+          //  String body = "{\"id1\":\"4053\",\"priority1\":2}";
 
+            System.out.println("body=" + body);
             // Записываем тело запроса в поток вывода
             OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());
             writer.write(body);
