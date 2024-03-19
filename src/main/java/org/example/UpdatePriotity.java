@@ -1,5 +1,7 @@
 package org.example;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -26,8 +28,13 @@ public class UpdatePriotity {
         System.out.println("task priority=" + tmpPriority);
 
 
+        //-------------------> попробуем отправить новый PRIORITY в виде объекта преобразованого в JSON<------------
 
-
+        Tasks newTaskObject = new Tasks();
+        newTaskObject.setId(tmpId);
+        newTaskObject.setPriority(tmpPriority);
+        ObjectMapper objectMapper = new ObjectMapper();
+        String jsonTaskObject = objectMapper.writeValueAsString(newTaskObject);
 
 
 
@@ -45,14 +52,17 @@ public class UpdatePriotity {
           //  String id = "id1=" + tmpId; //*************<<<<<<<<<<<<<<<************************
            // String priority = "priority1=" + tmpPriority;
            // String body1 = "id1=4502&priority1=2";
-            String body = "id1="+tmpId+"&"+"priority1="+tmpPriority;  ///<-----------------------
+
+           // String body = "id1="+tmpId+"&"+"priority1="+tmpPriority;  ///<-----------------------
+
            // String body = "{\"id1\":"+tmpId+","+" + "\"priority1\"\+"+",":"+ tmpPriority;
           //  String body = "{\"id1\":\"4053\",\"priority1\":2}";
 
-            System.out.println("body=" + body);
+          //  System.out.println("body=" + body);
             // Записываем тело запроса в поток вывода
             OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());
-            writer.write(body);
+            writer.write(jsonTaskObject);
+          //  writer.write(body);
            // writer.write(priority);
 
             writer.flush();
@@ -76,6 +86,13 @@ public class UpdatePriotity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+
+
+
+
+
 
 
         Start.connectToConsol();
