@@ -33,8 +33,8 @@ public class Start {
 
                 if (Objects.equals(choice, "1")) {
 
-                  //  cls(); // Чтобы очистить экран
-                  //  System.out.print("\033[H\033[J"); // Чтобы очистить экран
+                    cls(); // Чтобы очистить экран
+                    System.out.print("\033[H\033[J"); // Чтобы очистить экран
 
                     System.out.println("Get a list of OPEN tasks: ");
                     SortTasks.openTasksList(Connect.connectToUrl());

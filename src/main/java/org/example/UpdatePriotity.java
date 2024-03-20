@@ -46,7 +46,14 @@ public class UpdatePriotity {
             // Создаем объект HttpURLConnection и настраиваем его
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
+
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setRequestProperty("Accept", "application/json");
+
             connection.setDoOutput(true);
+
+
+
 
             // Создаем тело запроса
           //  String id = "id1=" + tmpId; //*************<<<<<<<<<<<<<<<************************
